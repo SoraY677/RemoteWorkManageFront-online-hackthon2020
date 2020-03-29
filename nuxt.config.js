@@ -23,11 +23,13 @@ export default {
   ** Global CSS
   */
   css: [
+    '@/assets/css/jkanban.min.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/jkanban.min'
   ],
   /*
   ** Nuxt.js dev-modules
