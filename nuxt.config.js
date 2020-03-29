@@ -40,6 +40,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    'nuxt-fontawesome'
   ],
   /*
   ** Build configuration
@@ -50,5 +51,14 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+
+  fontawesome: {
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['fas']
+      }
+    ]
   }
 }
