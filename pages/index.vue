@@ -1,14 +1,15 @@
 <template>
-  <kanban />
+<div>
+  <ranking :grade1="'ほげ太郎'" :grade2="'ほげ太郎'" :grade3="'ほげ太郎'" />
+</div>
 </template>
 
 <script>
-import kanban from "~/components/kanban"
+import ranking from "~/components/ranking"
 export default {
   components:{
-    kanban
+    ranking
   }
-
 }
 </script>
 

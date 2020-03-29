@@ -23,7 +23,10 @@ export default {
   ** Global CSS
   */
   css: [
+    '@/assets/css/reset.css',
+    '@/assets/css/common.css',
     '@/assets/css/jkanban.min.css'
+
   ],
   /*
   ** Plugins to load before mounting the App
