@@ -28,7 +28,7 @@ export default {};
 header.nav-header {
   display: block;
   overflow: hidden;
-  background-color: #f44336;
+  background-color: #708090;
 }
 
 header.nav-header > ul {
@@ -48,9 +48,10 @@ header.nav-header > ul >  li {
   float: left;
   min-width: 3em;
   min-height: 3em;
-  margin: 0 0.2em;
-  padding: 0.2em;
+  margin: 0.3em 0;
+  padding: 0.5em;
   color: #fff;
+  border-left:1px solid #2e2e2e;
   text-align: center;
   flex-wrap: wrap;
   justify-content: center;
@@ -59,9 +60,13 @@ header.nav-header > ul >  li {
   cursor: pointer;
 }
 
+header.nav-header > ul >  li:last-child{
+  border-right:1px solid #2e2e2e;
+}
+
 header.nav-header > ul > li:hover {
   background: #fff;
-  color: #f44336;
+  color: #708090;
 }
 
 
