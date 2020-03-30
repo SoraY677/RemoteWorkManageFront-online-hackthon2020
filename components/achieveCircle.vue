@@ -1,14 +1,12 @@
 <template>
-<div class="achive-circle-wrapper">
-  <svg class="c-circle__view" viewBox="0 0 63.6619772368 63.6619772368">
-    <circle
-      class="c-circle__1"
-      cx="31.8309886184"
-      cy="31.8309886184"
-      r="31.8309886184"
-    />
-  </svg>
-</div>
+  <div class="achive-circle-wrapper">
+    <svg viewBox="0 0 64 64">
+      <circle class="circle-inner" cx="32" cy="32" r="32" />
+      <circle class="solid-circle" cx="32" cy="32" r="16" />
+      <circle class="circle-title" cx="32" cy="32" r="24" />
+    </svg>
+    <span class="achieve-percent">d%</span>
+  </div>
 </template>
 
 <script>
@@ -20,16 +18,15 @@ export default {
 </script>
 
 <style>
-
-.achive-circle-wrapper{
+.achive-circle-wrapper {
   position: relative;
   display: block;
   height: 0;
-  font-size:1vw;
+  font-size: 1vw;
   width: 100%;
   padding-bottom: 100%;
 }
-.c-circle__view {
+.achive-circle-wrapper > svg {
   width: 100%;
   height: 100%;
   display: block;
@@ -37,14 +34,36 @@ export default {
   top: 0;
   left: 0;
   overflow: visible;
+  transform: rotate(-90deg);
 }
 
-/* circle {
-    fill:rgba(0,0,0,0);
-  stroke-width:31.8309886184;
-  stroke-dasharray: 0,0,0,100;
-  stroke-dashoffset: 25;
-  -webkit-animation: pie1 3s infinite ease both;
-  animation: pie1 6s infinite ease both;
-} */
+.circle-title {
+  fill: white;
+}
+.circle-inner {
+  fill: #eee;
+}
+.solid-circle {
+  fill: transparent;
+  stroke: #f44336;
+  stroke-width: 32;
+  animation: circle 5s ease-out;
+}
+
+@keyframes circle {
+  0% {
+    stroke-dasharray: 0 201;
+  }
+  100% {
+    stroke-dasharray: 201 201;
+  }
+}
+
+.achieve-percent {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 </style>
