@@ -11,12 +11,6 @@
           <font-awesome-icon icon="tasks" class="icon" /><span>タスク管理</span>
         </nuxt-link>
       </li>
-      <li>
-        <a href="/analysys">
-          <font-awesome-icon icon="chart-pie" class="icon" />
-          <span>進捗グラフ</span>
-        </a>
-      </li>
     </ul>
     <ul class="pos-right">
       <li>
