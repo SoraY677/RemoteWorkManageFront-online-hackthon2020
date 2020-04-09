@@ -43,7 +43,8 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    'nuxt-fontawesome'
+    'nuxt-fontawesome',
+    '@nuxtjs/axios'
   ],
   /*
   ** Build configuration
