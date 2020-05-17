@@ -25,14 +25,14 @@ export default {
   css: [
     '@/assets/css/reset.css',
     '@/assets/css/common.css',
-    '@/assets/css/jkanban.min.css'
-
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/jkanban.min'
+    { src: '@/plugins/localStorage', 
+      ssr: false 
+    },
   ],
   /*
   ** Nuxt.js dev-modules
@@ -44,8 +44,13 @@ export default {
   */
   modules: [
     'nuxt-fontawesome',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/vuetify',
+    '@nuxtjs/auth'
   ],
+  router: {
+    middleware: 'routing'
+  }  ,
   /*
   ** Build configuration
   */
@@ -64,5 +69,5 @@ export default {
         icons: ['fas']
       }
     ]
-  }
+  },
 }
