@@ -2,7 +2,7 @@
   <main class="inner-frame">
     <section class="ranking-barchart-area">
       <h1>全体の進捗ランキング</h1>
-      <rankingBarchart :memberAchive="rankingJson" />
+      <!-- <rankingBarchart :memberAchive="rankingJson" /> -->
     </section>
     <section class="achive-circle-area">
       <h1>個人の達成度</h1>
@@ -35,20 +35,7 @@ import rankingBarchart from "~/components/rankingBarchart";
 import achieveCircle from "~/components/achieveCircle";
 export default {
   layout: "ManageLayout",
-  data() {
-    return {
-      rankingJson: [
-        {
-          name: "hoge",
-          percentage: 20
-        },
-        {
-          name: "fuga",
-          percentage: 65
-        }
-      ]
-    };
-  },
+  data() {},
   components: {
     rankingBarchart,
     achieveCircle

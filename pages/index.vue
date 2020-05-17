@@ -10,6 +10,7 @@
 import authForm from "~/components/authForm";
 
 export default {
+  layout: "homeLayout",
   components: {
     authForm
   }

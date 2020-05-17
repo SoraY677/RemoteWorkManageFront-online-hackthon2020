@@ -3,14 +3,14 @@
 </template>
 
 <script>
-import kanban from "~/components/kanban"
+import kanban from "~/components/kanban";
 export default {
-  components:{
+  layout: "ManageLayout",
+  components: {
     kanban
   }
-}
+};
 </script>
 
 <style>
-
 </style>

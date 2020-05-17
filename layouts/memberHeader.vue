@@ -2,10 +2,7 @@
   <v-card>
     <v-toolbar>
       <v-toolbar-items>
-        <v-btn to="/Manager" text primary>TOP</v-btn>
-      </v-toolbar-items>
-      <v-toolbar-items>
-        <v-btn to="/taskManage" text primary>Task</v-btn>
+        <v-btn to="/Member" text primary>TOP</v-btn>
       </v-toolbar-items>
     </v-toolbar>
   </v-card>
