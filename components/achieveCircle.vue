@@ -2,20 +2,37 @@
   <div class="achive-circle-wrapper">
     <svg viewBox="0 0 64 64">
       <circle class="circle-inner" cx="32" cy="32" r="32" />
-      <circle class="solid-circle" cx="32" cy="32" r="16" />
+      <circle ref="solidCircle" class="solid-circle" cx="32" cy="32" r="16" />
       <circle class="circle-title" cx="32" cy="32" r="24" />
     </svg>
-    <span class="achieve-percent">d%</span>
+    <span class="achieve-percent">{{ progress }}%</span>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    percentage: 0
+    progress: 0
+  },
+  mounted() {
+    const circleElement = this.$refs.solidCircle;
+    const progPercent = this.progress;
+    const effect = new KeyframeEffect(
+      circleElement,
+      { strokeDasharray: ["0 200", progPercent + " 200"] },
+      { duration: 5000, iterations: 1 }
+    );
+
+    const animation = new Animation(effect, document.timeline);
+    animation.play();
+
+    animation.onfinish = function() {
+      circleElement.style.strokeDasharray = progPercent + " 200";
+    };
   }
 };
 </script>
+
 
 <style>
 .achive-circle-wrapper {
@@ -47,7 +64,6 @@ export default {
   fill: transparent;
   stroke: #f44336;
   stroke-width: 32;
-  animation: circle 5s ease-out;
 }
 
 @keyframes circle {
@@ -55,7 +71,7 @@ export default {
     stroke-dasharray: 0 201;
   }
   100% {
-    stroke-dasharray: 201 201;
+    stroke-dasharray: 201;
   }
 }
 

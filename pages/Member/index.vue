@@ -1,32 +1,54 @@
 <template>
-  <main class="inner-frame">
-    <section class="ranking-barchart-area">
-      <h1>全体の進捗ランキング</h1>
-      <!-- <rankingBarchart :memberAchive="rankingJson" /> -->
-    </section>
-    <section class="achive-circle-area">
-      <h1>個人の達成度</h1>
-      <ul class="achieve-circles">
-        <li>
-          <h2>午前</h2>
+  <main class="mx-10">
+    <v-card class="ma-10 pa-5">
+      <v-card-text
+        ><p class="text-center text--primary headline">
+          全体の進捗ランキング
+        </p></v-card-text
+      >
+      <v-divider></v-divider>
+      <rankingBarchart :rank="rank" />
+    </v-card>
+    <v-card class="ma-10 pa-5 text-center">
+      <v-card-text
+        ><p class="text-center text--primary headline">
+          個人の達成度
+        </p></v-card-text
+      >
+      <v-divider></v-divider>
+      <v-row>
+        <v-col>
+          <v-card-text>
+            <p class="text-center">
+              午前
+            </p>
+          </v-card-text>
           <div>
-            <achieveCircle />
+            <achieveCircle :progress="progress.am" />
           </div>
-        </li>
-        <li>
-          <h2>午後</h2>
+        </v-col>
+        <v-col>
+          <v-card-text>
+            <p class="text-center">
+              午後
+            </p>
+          </v-card-text>
           <div>
-            <achieveCircle />
+            <achieveCircle :progress="progress.pm" />
           </div>
-        </li>
-        <li>
-          <h2>全体</h2>
+        </v-col>
+        <v-col>
+          <v-card-text>
+            <p class="text-center">
+              全日
+            </p>
+          </v-card-text>
           <div>
-            <achieveCircle />
+            <achieveCircle :progress="progress.whole" />
           </div>
-        </li>
-      </ul>
-    </section>
+        </v-col>
+      </v-row>
+    </v-card>
   </main>
 </template>
 
@@ -35,10 +57,25 @@ import rankingBarchart from "~/components/rankingBarchart";
 import achieveCircle from "~/components/achieveCircle";
 export default {
   layout: "ManageLayout",
-  data() {},
+
   components: {
     rankingBarchart,
     achieveCircle
+  },
+
+  async asyncData({ app }) {
+    const rankResponse = await app.$axios.$get(
+      "https://calm-coast-93883.herokuapp.com/user/rank?num=10"
+    );
+
+    const progressResponse = await app.$axios.$get(
+      "https://calm-coast-93883.herokuapp.com/task/progress"
+    );
+
+    return {
+      progress: progressResponse,
+      rank: rankResponse
+    };
   }
 };
 </script>

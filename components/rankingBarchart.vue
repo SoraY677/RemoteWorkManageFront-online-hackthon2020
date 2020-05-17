@@ -1,18 +1,14 @@
 <template>
   <div class="ranking-barchart">
-    <div
-      v-for="barel in memberAchive"
-      :key="barel.id"
-      class="ranking-bar-container"
-    >
+    <div v-for="user in rank" :key="user.id" class="ranking-bar-container">
       <div class="icon-container">
         <img src="#" />
-        <span>{{ barel.name }}</span>
+        <span>{{ user.name }}</span>
       </div>
       <div ref="barOuter" class="bar-outer">
         <div
           class="solid-bar"
-          :style="{ width: formatBarLength(barel.percentage) }"
+          :style="{ width: formatBarLength(user.progress) }"
         ></div>
       </div>
     </div>
@@ -22,7 +18,7 @@
 <script>
 export default {
   props: {
-    memberAchive: Array
+    rank: Array
   },
   methods: {
     formatBarLength(percentage) {

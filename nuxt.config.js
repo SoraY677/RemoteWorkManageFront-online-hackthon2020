@@ -39,14 +39,14 @@ export default {
   */
   buildModules: [
   ],
+  axios:{},
   /*
   ** Nuxt.js modules
   */
   modules: [
     'nuxt-fontawesome',
-    '@nuxtjs/axios',
-    '@nuxtjs/vuetify',
-    '@nuxtjs/auth'
+    "@nuxtjs/axios",
+    '@nuxtjs/vuetify'
   ],
   router: {
     middleware: 'routing'
