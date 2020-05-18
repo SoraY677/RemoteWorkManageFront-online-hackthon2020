@@ -3,6 +3,23 @@
     <v-card class="ma-10 pa-5">
       <v-card-text
         ><p class="text-center text--primary headline">
+          お知らせ一覧
+        </p></v-card-text
+      >
+      <v-divider></v-divider>
+      <ul v-if="notice.length > 0" class="pa-10 text-center">
+        <li v-for="line in notice" :key="line.id">
+          <v-card elevation="0">{{ line }}</v-card>
+        </li>
+      </ul>
+      <div v-if="notice.length === 0" class="pa-10 text-center">
+        お知らせはありません。
+      </div>
+    </v-card>
+    <!-- =================== -->
+    <v-card class="ma-10 pa-5">
+      <v-card-text
+        ><p class="text-center text--primary headline">
           全体の進捗ランキング
         </p></v-card-text
       >
@@ -77,7 +94,8 @@ export default {
 
     return {
       progress: progressResponse,
-      rank: rankResponse
+      rank: rankResponse,
+      notice: [] // ["sample01", "sample02"]
     };
   }
 };
