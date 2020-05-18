@@ -5,10 +5,5 @@
 </template>
 
 <script>
-import myheader from "~/layouts/header";
-export default {
-  components: {
-    myheader
-  }
-};
+export default {};
 </script>

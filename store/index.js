@@ -2,6 +2,7 @@ export const state = () =>({
   name:"",
   id:"",
   auth:"",
+  adminFlag:""
 })
 
 export const getters = {
@@ -17,10 +18,11 @@ export const getters = {
 }
 
 export const mutations = {
-  setAuth:function(state,{name,id,auth}){
+  setAuth:function(state,{name,id,auth,admin}){
     state.name = name
     state.id = id
     state.auth = auth
+    state.adming = admin
   },
 }
 
@@ -31,6 +33,7 @@ export const actions = {
     res.name = storeObj.name
     res.id = storeObj.id
     res.auth = storeObj.auth
+    res.admin = storeObj.admin
     commit('setAuth', res)
   },
   async login({commit},{username, password}){

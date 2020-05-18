@@ -1,11 +1,11 @@
 <template>
   <v-card>
-    <v-toolbar color="grey lighten-2">
+    <v-toolbar>
       <v-toolbar-items>
-        <v-btn to="/Member/Top" text primary>TOP</v-btn>
+        <v-btn to="/Manager/Top" text primary>TOP</v-btn>
       </v-toolbar-items>
       <v-toolbar-items>
-        <v-btn to="/Member/Task" text primary>TASK</v-btn>
+        <v-btn to="/Manager/Task" text primary>Task</v-btn>
       </v-toolbar-items>
       <v-spacer></v-spacer>
       <v-toolbar-items>
@@ -26,7 +26,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  components: {}
+};
 </script>
 
 <style>
