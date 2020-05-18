@@ -33,13 +33,13 @@ export default {
     { src: '@/plugins/localStorage', 
       ssr: false 
     },
+    { src: '@/plugins/nuxt-client-init.js', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules
   */
   buildModules: [
   ],
-  axios:{},
   /*
   ** Nuxt.js modules
   */
@@ -70,4 +70,5 @@ export default {
       }
     ]
   },
+  axios: {}
 }
