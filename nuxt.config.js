@@ -46,7 +46,7 @@ export default {
   modules: [
     'nuxt-fontawesome',
     "@nuxtjs/axios",
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
   ],
   router: {
     middleware: 'routing'
