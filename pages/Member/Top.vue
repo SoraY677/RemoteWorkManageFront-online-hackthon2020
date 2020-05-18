@@ -56,7 +56,7 @@
 import rankingBarchart from "~/components/rankingBarchart";
 import achieveCircle from "~/components/achieveCircle";
 export default {
-  layout: "ManageLayout",
+  layout: "memberLayout",
 
   components: {
     rankingBarchart,

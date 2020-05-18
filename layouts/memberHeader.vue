@@ -9,7 +9,7 @@
       </v-toolbar-items>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-btn class="px-10" icon fab to="/userPage">
+        <v-btn class="px-10" icon fab to="/Member/Profile">
           <v-avatar>
             <img
               :src="

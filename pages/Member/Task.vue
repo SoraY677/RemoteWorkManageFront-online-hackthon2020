@@ -25,6 +25,7 @@
 import taskItem from "~/components/taskItem";
 
 export default {
+  layout: "memberLayout",
   components: {
     taskItem
   },

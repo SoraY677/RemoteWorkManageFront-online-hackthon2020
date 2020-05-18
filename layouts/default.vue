@@ -1,15 +1,14 @@
 <template>
   <v-app>
-    <myheader />
-    <nuxt-child />
+    <notFoundPage />
   </v-app>
 </template>
 
 <script>
-import myheader from "~/layouts/memberHeader";
+import notFoundPage from "~/pages/notFound";
 export default {
   components: {
-    myheader
+    notFoundPage
   }
 };
 </script>
