@@ -3,16 +3,28 @@
     <v-card-text class="text-center"> 現在のタスク一覧</v-card-text>
     <v-divider></v-divider>
     <taskList class="ma-10" />
+    <v-btn @click="showTaskDialog" class="pa-2" color="pink" dark right fixed>
+      <font-awesome-icon class="mr-1" :icon="['fas', 'plus']" />
+      taskを追加する
+    </v-btn>
+    <taskDialog ref="taskDialog" />
   </v-card>
 </template>
 
 <script>
 import taskList from "~/components/taskList";
+import taskDialog from "~/components/taskDialog";
 
 export default {
   layout: "manageLayout",
   components: {
-    taskList
+    taskList,
+    taskDialog
+  },
+  methods: {
+    showTaskDialog() {
+      this.$refs.taskDialog.show();
+    }
   }
 };
 </script>

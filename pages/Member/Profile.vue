@@ -7,6 +7,7 @@
 <script>
 import userProfile from "~/components/userProfile";
 export default {
+  layout: "memberLayout",
   components: {
     userProfile
   }

@@ -28,6 +28,7 @@ export const mutations = {
 
 export const actions = {
   nuxtClientInit ({ commit, state, dispatch }, { req }) {
+    if(localStorage["RemoteWorkManage-key"] != void 0){
     const storeObj = JSON.parse(localStorage["RemoteWorkManage-key"]);
     let res = new Object()
     res.name = storeObj.name
@@ -35,6 +36,7 @@ export const actions = {
     res.auth = storeObj.auth
     res.admin = storeObj.admin
     commit('setAuth', res)
+    }
   },
   async login({commit},{username, password}){
     const response = await this.$axios
