@@ -7,7 +7,11 @@
       label="管理者ログイン"
     ></v-switch>
     <v-text-field v-model="name" label="Name"></v-text-field>
-    <v-text-field v-model="pass" label="Password"></v-text-field>
+    <v-text-field
+      v-model="pass"
+      label="Password"
+      type="password"
+    ></v-text-field>
     <v-btn color="red" @click="authentication($event)">Log in</v-btn>
   </v-card>
 </template>
