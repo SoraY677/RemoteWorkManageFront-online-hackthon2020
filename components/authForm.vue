@@ -61,7 +61,7 @@ export default {
               auth: res.status,
               adming: this.adminFlag
             });
-            location.href = "./Member/Top";
+            location.assign("./Member/Top");
           });
       }
     }
