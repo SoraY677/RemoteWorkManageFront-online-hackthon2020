@@ -12,7 +12,7 @@
       label="Password"
       type="password"
     ></v-text-field>
-    <v-btn color="red" @click="authentication($event)">Log in</v-btn>
+    <v-btn color="red" @click="authentication()">Log in</v-btn>
   </v-card>
 </template>
 
@@ -26,44 +26,30 @@ export default {
     };
   },
   methods: {
-    async authentication(e) {
-      e.preventDefault();
-      if (this.adminFlag) {
-        await this.$axios
-          .$get("https://calm-coast-93883.herokuapp.com/admin/auth", {
-            params: {
-              name: this.name,
-              password: this.pass
-            }
-          })
-          .then(async res => {
-            await this.$store.commit("setAuth", {
-              name: this.name,
-              id: res.id,
-              auth: res.status,
-              adming: this.adminFlag
-            });
+    async authentication() {
+      const endpoint = this.adminFlag
+        ? "https://calm-coast-93883.herokuapp.com/admin/auth"
+        : "https://calm-coast-93883.herokuapp.com/user/auth";
+      const nexturl = this.adminFlag ? "/Manager/Top" : "/Member/Top";
 
-            location.href = "./Manager/Top";
+      await this.$axios
+        .$get(endpoint, {
+          params: {
+            name: this.name,
+            password: this.pass
+          }
+        })
+        .then(async res => {
+          this.$store.commit("setAuth", {
+            name: this.name,
+            id: res.id,
+            auth: res.status,
+            admin: this.adminFlag
           });
-      } else {
-        await this.$axios
-          .$get("https://calm-coast-93883.herokuapp.com/user/auth", {
-            params: {
-              name: this.name,
-              password: this.pass
-            }
-          })
-          .then(async res => {
-            this.$store.commit("setAuth", {
-              name: this.name,
-              id: res.id,
-              auth: res.status,
-              adming: this.adminFlag
-            });
-            location.assign("./Member/Top");
-          });
-      }
+          setTimeout(() => {
+            location.href = nexturl;
+          }, 0);
+        });
     }
   }
 };
