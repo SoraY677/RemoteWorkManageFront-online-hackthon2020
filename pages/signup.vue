@@ -1,21 +1,23 @@
 <template>
   <v-app>
-    <div class="ma-auto">
-      <authForm class="text-center" />
-      <div class="d-flex justify-center mt-2">
-        <v-btn text color="blue" to="/signup">新規登録はこちら</v-btn>
+    <div>
+      <registForm />
+      <div class="ma-auto">
+        <div class="d-flex justify-center mt-2">
+          <v-btn text color="blue" to="/">ログインはこちら</v-btn>
+        </div>
       </div>
     </div>
   </v-app>
 </template>
 
 <script>
-import authForm from "~/components/authForm";
+import registForm from "~/components/registForm";
 
 export default {
   layout: "gateLayout",
   components: {
-    authForm
+    registForm
   }
 };
 </script>
