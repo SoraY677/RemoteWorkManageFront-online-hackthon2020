@@ -3,7 +3,7 @@
     <div class="ma-auto">
       <authForm class="text-center" />
       <div class="d-flex justify-center mt-2">
-        <v-btn text color="blue" to="/signup">新規登録はこちら</v-btn>
+        <v-btn to="/signup" text color="blue">新規登録はこちら</v-btn>
       </div>
     </div>
   </v-app>

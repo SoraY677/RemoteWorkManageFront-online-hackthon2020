@@ -95,7 +95,7 @@ export default {
     return {
       progress: progressResponse,
       rank: rankResponse,
-      notice: [] // ["sample01", "sample02"]
+      notice: []
     };
   }
 };
