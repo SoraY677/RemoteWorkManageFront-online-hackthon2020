@@ -1,6 +1,15 @@
 <template>
   <v-card class="mt-4 pa-5" width="100%" :disabled="isDone">
-    <v-btn v-model="isDone" class="d-inline-block" color="green" text>
+    <v-btn
+      v-if="!isDone"
+      @click="doneTask()"
+      class="d-inline-block"
+      color="green"
+      text
+    >
+      ✔Done
+    </v-btn>
+    <v-btn v-if="isDone" class="d-inline-block" color="grey" text>
       ✔Done
     </v-btn>
     <div class="d-inline-block">
@@ -11,33 +20,28 @@
         {{ taskStatus.describe }}
       </v-card-subtitle>
     </div>
-    <taskAchive :about="taskStatus" ref="taskAchive" />
+    <achievementDialog ref="achievementDialog" />
   </v-card>
 </template>
 
 <script>
-import taskAchive from "~/components/achieveDialog";
+import achievementDialog from "~/components/achievementDialog";
 export default {
   data() {
-    return { isDone: false };
+    return { isDone: false, isShow: false };
   },
   props: {
     taskStatus: {}
   },
   components: {
-    taskAchive
+    achievementDialog
   },
   mounted() {
     this.isDone = this.taskStatus.isDone;
   },
   methods: {
-    showAchive() {
-      this.$refs.taskAchive.show(this.isDone);
-    }
-  },
-  computed() {
-    if (this.isDone) {
-      showAchive();
+    doneTask() {
+      this.$refs.achievementDialog.show();
     }
   }
 };

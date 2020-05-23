@@ -1,23 +1,16 @@
 <template>
   <div>
     <v-list class="mx-10">
-      <v-list-item>
+      <v-list-item class="flex-wrap">
         <taskItem
+          v-for="item in task"
+          :key="item.id"
           :taskStatus="{
-            name: 'sample',
+            name: item.do,
             describe: 'これはsampleの説明文です',
-            isDone: false
+            isDone: item.status
           }"
           @click="isShow = true"
-        />
-      </v-list-item>
-      <v-list-item>
-        <taskItem
-          :taskStatus="{
-            name: 'sample2',
-            describe: 'これはsample2の説明文です',
-            isDone: true
-          }"
         />
       </v-list-item>
     </v-list>
@@ -26,7 +19,6 @@
 
 <script>
 import taskItem from "~/components/taskItem";
-import taskAchive from "~/components/achieveDialog";
 
 export default {
   layout: "memberLayout",
@@ -38,11 +30,17 @@ export default {
     };
   },
   components: {
-    taskItem,
-    taskAchive
+    taskItem
   },
   async asyncData({ app, store }) {
-    const response = await app.$axios.$get(process.env.API_URL + "user/rank");
+    const response = await app.$axios.$get(process.env.API_URL + "task/yet", {
+      params: {
+        worker: store.state.name
+      }
+    });
+    return {
+      task: response
+    };
   }
 };
 </script>

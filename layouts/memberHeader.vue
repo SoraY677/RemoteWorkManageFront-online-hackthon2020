@@ -24,7 +24,11 @@
 export default {
   methods: {
     getIconurl() {
-      return process.env.API_URL + "user/icon?name=" + this.$store.state.name;
+      return (
+        "https://polar-shelf-59913.herokuapp.com/" +
+        "user/icon?name=" +
+        this.$store.state.name
+      );
     }
   }
 };
