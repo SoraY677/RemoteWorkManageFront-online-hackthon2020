@@ -10,10 +10,12 @@
       <v-checkbox label="slackに投稿"></v-checkbox>
       <v-row>
         <v-col>
-          <v-btn color="red" width="100%">完了</v-btn>
+          <v-btn color="red" width="100%" @click="done()">完了</v-btn>
         </v-col>
         <v-col>
-          <v-btn color="green" width="100%">キャンセル</v-btn>
+          <v-btn color="green" width="100%" @click="isShow = false"
+            >キャンセル</v-btn
+          >
         </v-col>
       </v-row>
     </v-card>
@@ -30,6 +32,11 @@ export default {
   methods: {
     show() {
       this.isShow = true;
+    },
+    done() {
+      this.$emit("done");
+      this.isShow = false;
+      console.log("hoge");
     }
   }
 };

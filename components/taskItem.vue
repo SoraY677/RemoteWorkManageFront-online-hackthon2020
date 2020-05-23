@@ -20,7 +20,7 @@
         {{ taskStatus.describe }}
       </v-card-subtitle>
     </div>
-    <achievementDialog ref="achievementDialog" />
+    <achievementDialog ref="achievementDialog" @done="confirm" />
   </v-card>
 </template>
 
@@ -42,6 +42,9 @@ export default {
   methods: {
     doneTask() {
       this.$refs.achievementDialog.show();
+    },
+    confirm() {
+      this.isDone = true;
     }
   }
 };
