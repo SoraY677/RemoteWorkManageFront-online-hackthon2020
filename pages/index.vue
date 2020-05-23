@@ -2,7 +2,7 @@
   <v-app>
     <div class="ma-auto py-10">
       <authForm class="text-center" />
-      <div class="d-flex justify-center mt-2">
+      <div class="d-flex justify-center my-2">
         <v-btn to="/signup" text color="blue">新規登録はこちら</v-btn>
       </div>
     </div>

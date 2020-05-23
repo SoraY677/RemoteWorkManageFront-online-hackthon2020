@@ -3,7 +3,7 @@
     <div>
       <registForm />
       <div class="ma-auto">
-        <div class="d-flex justify-center mt-2">
+        <div class="d-flex justify-center my-4">
           <v-btn text color="blue" to="/">ログインはこちら</v-btn>
         </div>
       </div>

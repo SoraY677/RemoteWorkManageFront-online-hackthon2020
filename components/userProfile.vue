@@ -6,7 +6,7 @@
     <v-divider></v-divider>
     <v-card-text class="pt-10">
       <h1>{{ $store.state.name }}</h1>
-      <p>管理者：hogehoge</p>
+      <p>権限：user</p>
       <p></p>
     </v-card-text>
   </v-card>
@@ -16,7 +16,7 @@
 export default {
   methods: {
     getImgUrl() {
-      return process.env.API_URL + "/user/icon?name=" + this.$store.state.name;
+      return process.env.BASE_URL + "/user/icon?name=" + this.$store.state.name;
     }
   }
 };
