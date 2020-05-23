@@ -75,6 +75,7 @@ export default {
   },
   axios: {},
   env:{
+    BASE_URL: "https://polar-shelf-59913.herokuapp.com/",
     API_URL : "https://cors-anywhere.herokuapp.com/https://polar-shelf-59913.herokuapp.com/"
   }
 }

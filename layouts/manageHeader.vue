@@ -25,7 +25,7 @@ export default {
   components: {},
   methods: {
     getImgUrl() {
-      return process.env.API_URL + "admin/icon?name=" + this.$store.state.name;
+      return process.env.BASE_URL + "admin/icon?name=" + this.$store.state.name;
     }
   }
 };
