@@ -2,10 +2,7 @@
   <v-card class="text-center pa-10">
     <v-avatar size="60%" min-width="100" max-width="480" outline color="grey">
       <img
-        :src="
-          'https://calm-coast-93883.herokuapp.com/user/icon?name=' +
-            $store.state.name
-        "
+        :src="process.env.API_URL + '/user/icon?name=' + $store.state.name"
       />
     </v-avatar>
     <v-divider></v-divider>

@@ -111,16 +111,13 @@ export default {
       return rowInt;
     },
     async postTaskAdd() {
-      await this.$axios.$post(
-        "https://calm-coast-93883.herokuapp.com/task/add",
-        {
-          params: {
-            name: this.$store.state.name,
-            worker: this.form.worker,
-            do: this.form.name
-          }
+      await this.$axios.$post(process.env.API_URL + "task/add", {
+        params: {
+          name: this.$store.state.name,
+          worker: this.form.worker,
+          do: this.form.name
         }
-      );
+      });
     }
   }
 };

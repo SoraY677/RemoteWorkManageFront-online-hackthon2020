@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 
 export default {
   mode: 'spa',
@@ -39,6 +41,7 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@nuxtjs/dotenv'
   ],
   /*
   ** Nuxt.js modules
@@ -70,5 +73,8 @@ export default {
       }
     ]
   },
-  axios: {}
+  axios: {},
+  env:{
+    API_URL : "https://cors-anywhere.herokuapp.com/https://polar-shelf-59913.herokuapp.com/"
+  }
 }

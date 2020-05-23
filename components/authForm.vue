@@ -27,13 +27,12 @@ export default {
   },
   methods: {
     async authentication() {
-      const endpoint = this.adminFlag
-        ? "https://calm-coast-93883.herokuapp.com/admin/auth"
-        : "https://calm-coast-93883.herokuapp.com/user/auth";
+      const endpoint = this.adminFlag ? "admin/auth" : "user/auth";
       const nexturl = this.adminFlag ? "/Manager/Top" : "/Member/Top";
+      console.log(endpoint);
 
       await this.$axios
-        .$get(endpoint, {
+        .$get(process.env.API_URL + endpoint, {
           params: {
             name: this.name,
             password: this.pass

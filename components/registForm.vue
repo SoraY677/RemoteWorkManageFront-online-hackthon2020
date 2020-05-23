@@ -101,13 +101,10 @@ export default {
       }
     },
     async registRequest() {
-      const endpoint =
-        form == 0
-          ? "https://calm-coast-93883.herokuapp.com/user/new"
-          : "https://calm-coast-93883.herokuapp.com/admin/new";
+      const endpoint = form == 0 ? "user/new" : "admin/new";
 
       await this.$axios
-        .$get(endpoint, {
+        .$get(process.env.API_URL + endpoint, {
           params: {
             name: this.form.name,
             password: this.form.pass,

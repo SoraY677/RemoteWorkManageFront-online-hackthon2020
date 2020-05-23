@@ -3,7 +3,7 @@
     <v-card class="ma-10 pa-5">
       <v-card-text
         ><p class="text-center text--primary headline">
-          お知らせ一覧
+          日報
         </p></v-card-text
       >
       <v-divider></v-divider>
@@ -13,7 +13,7 @@
         </li>
       </ul>
       <div v-if="notice.length === 0" class="pa-10 text-center">
-        お知らせはありません。
+        日報はまだありません。
       </div>
     </v-card>
     <!-- =================== -->
@@ -85,11 +85,11 @@ export default {
 
   async asyncData({ app }) {
     const rankResponse = await app.$axios.$get(
-      "https://calm-coast-93883.herokuapp.com/user/rank"
+      process.env.API_URL + "user/rank"
     );
 
     const progressResponse = await app.$axios.$get(
-      "https://calm-coast-93883.herokuapp.com/task/progress"
+      process.env.API_URL + "task/progress"
     );
 
     return {

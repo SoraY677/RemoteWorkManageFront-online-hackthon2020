@@ -12,10 +12,7 @@
         <v-btn class="px-10" icon fab to="/Member/Profile">
           <v-avatar>
             <img
-              :src="
-                'https://calm-coast-93883.herokuapp.com/user/icon?name=' +
-                  $store.state.name
-              "
+              :src="process.env.API_URL + 'user/icon?name=' + $store.state.name"
             />
           </v-avatar>
         </v-btn>

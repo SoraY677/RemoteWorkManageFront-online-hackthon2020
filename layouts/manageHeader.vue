@@ -13,8 +13,7 @@
           <v-avatar>
             <img
               :src="
-                'https://calm-coast-93883.herokuapp.com/user/icon?name=' +
-                  $store.state.name
+                process.env.API_URL + 'admin/icon?name=' + $store.state.name
               "
             />
           </v-avatar>

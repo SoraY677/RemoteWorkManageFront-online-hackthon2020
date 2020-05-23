@@ -24,7 +24,7 @@ export default {
   },
   async asyncData({ app }) {
     const rankResponse = await app.$axios.$get(
-      "https://calm-coast-93883.herokuapp.com/user/rank"
+      process.env.API_URL + "user/rank"
     );
     return {
       rank: rankResponse
