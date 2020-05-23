@@ -1,12 +1,11 @@
 <template>
   <v-card class="text-center pa-10">
     <v-avatar size="60%" min-width="100" max-width="480" outline color="grey">
-      <img :src="getImgUrl()" />
+      <img :src="imgurl" />
     </v-avatar>
     <v-divider></v-divider>
     <v-card-text class="pt-10">
       <h1>{{ $store.state.name }}</h1>
-      <p>権限：user</p>
       <p></p>
     </v-card-text>
   </v-card>
@@ -14,11 +13,10 @@
 
 <script>
 export default {
-  methods: {
-    getImgUrl() {
-      return process.env.BASE_URL + "/user/icon?name=" + this.$store.state.name;
-    }
-  }
+  props: {
+    imgurl: ""
+  },
+  methods: {}
 };
 </script>
 

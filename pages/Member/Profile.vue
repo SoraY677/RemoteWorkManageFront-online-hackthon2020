@@ -1,6 +1,6 @@
 <template>
   <div>
-    <userProfile class="ma-10" />
+    <userProfile class="ma-10" :imgurl="getImgUrl()" />
   </div>
 </template>
 
@@ -10,6 +10,11 @@ export default {
   layout: "memberLayout",
   components: {
     userProfile
+  },
+  methods: {
+    getImgUrl() {
+      return process.env.BASE_URL + "/user/icon?name=" + this.$store.state.name;
+    }
   }
 };
 </script>
