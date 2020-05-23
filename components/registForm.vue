@@ -55,6 +55,7 @@
       <div class="text-center">
         <v-btn
           color="red"
+          type="submit"
           :disabled="!permitResistBtPush"
           @click="registRequest()"
           >登録</v-btn
@@ -101,14 +102,25 @@ export default {
       }
     },
     async registRequest() {
-      const endpoint = form == 0 ? "user/new" : "admin/new";
+      let fileReader = new FileReader();
+
+      let dataUrl = "";
+      fileReader.onload = await function() {
+        dataUrl = fileReader.result;
+      };
+      fileReader.readAsDataURL(this.inputImage);
+
+      const endpoint = this.form.category == 0 ? "user/new" : "admin/new";
+
+      let format = new FormData();
+      format.append("value", this.inputImage);
 
       await this.$axios
-        .$get(process.env.API_URL + endpoint, {
+        .$post(process.env.API_URL + endpoint, {
           params: {
             name: this.form.name,
             password: this.form.pass,
-            file: this.inputImage
+            file: dataUrl
           }
         })
         .then(async res => {

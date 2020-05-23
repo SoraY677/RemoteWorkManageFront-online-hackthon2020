@@ -29,7 +29,6 @@ export default {
     async authentication() {
       const endpoint = this.adminFlag ? "admin/auth" : "user/auth";
       const nexturl = this.adminFlag ? "/Manager/Top" : "/Member/Top";
-      console.log(endpoint);
 
       await this.$axios
         .$get(process.env.API_URL + endpoint, {

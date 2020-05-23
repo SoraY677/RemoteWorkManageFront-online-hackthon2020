@@ -51,9 +51,9 @@ export default {
     "@nuxtjs/axios",
     '@nuxtjs/vuetify',
   ],
-  router: {
-    middleware: 'routing'
-  }  ,
+  // router: {
+  //   middleware: 'routing'
+  // }  ,
   /*
   ** Build configuration
   */

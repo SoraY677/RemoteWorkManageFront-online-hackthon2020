@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-if="isShow">
+  <v-dialog v-if="show">
     <v-card>
       <v-card-title>{{ about.name }}</v-card-title>
       <v-card-text
@@ -19,9 +19,9 @@ export default {
   pros: {
     about: {}
   },
-  methods: {
+  computed: {
     show() {
-      isShow = true;
+      return this.isShow;
     }
   }
 };

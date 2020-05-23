@@ -1,6 +1,8 @@
 <template>
-  <v-card class="mt-4 pa-5" width="100%">
-    <v-checkbox v-model="isDone" class="d-inline-block"></v-checkbox>
+  <v-card class="mt-4 pa-5" width="100%" :disabled="isDone">
+    <v-btn v-model="isDone" class="d-inline-block" color="green" text>
+      ✔Done
+    </v-btn>
     <div class="d-inline-block">
       <v-card-title>
         {{ taskStatus.name }}
@@ -9,10 +11,12 @@
         {{ taskStatus.describe }}
       </v-card-subtitle>
     </div>
+    <taskAchive :about="taskStatus" ref="taskAchive" />
   </v-card>
 </template>
 
 <script>
+import taskAchive from "~/components/achieveDialog";
 export default {
   data() {
     return { isDone: false };
@@ -20,8 +24,21 @@ export default {
   props: {
     taskStatus: {}
   },
+  components: {
+    taskAchive
+  },
   mounted() {
     this.isDone = this.taskStatus.isDone;
+  },
+  methods: {
+    showAchive() {
+      this.$refs.taskAchive.show(this.isDone);
+    }
+  },
+  computed() {
+    if (this.isDone) {
+      showAchive();
+    }
   }
 };
 </script>

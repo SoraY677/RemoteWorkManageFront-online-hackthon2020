@@ -11,9 +11,7 @@
       <v-toolbar-items>
         <v-btn class="px-10" icon fab to="/Member/Profile">
           <v-avatar>
-            <img
-              :src="process.env.API_URL + 'user/icon?name=' + $store.state.name"
-            />
+            <img :src="getIconurl()" />
           </v-avatar>
         </v-btn>
         <v-btn to="/" text primary>log out</v-btn>
@@ -23,7 +21,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    getIconurl() {
+      return process.env.API_URL + "user/icon?name=" + this.$store.state.name;
+    }
+  }
+};
 </script>
 
 <style>

@@ -21,7 +21,6 @@
         />
       </v-list-item>
     </v-list>
-    <taskAchive :about="achive" ref="taskAchive" />
   </div>
 </template>
 
@@ -44,12 +43,6 @@ export default {
   },
   async asyncData({ app, store }) {
     const response = await app.$axios.$get(process.env.API_URL + "user/rank");
-  },
-  methods: {
-    showAchive() {
-      this.achive["name"] = "hogehoge";
-      this.$refs.taskAchive.show();
-    }
   }
 };
 </script>
