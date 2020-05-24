@@ -12,23 +12,33 @@
 <script>
 export default {
   props: {
-    progress: 0
+    progress: 0,
+    animation: true
   },
   mounted() {
     const circleElement = this.$refs.solidCircle;
     const progPercent = this.progress;
-    const effect = new KeyframeEffect(
-      circleElement,
-      { strokeDasharray: ["0 200", progPercent + " 200"] },
-      { duration: 5000, iterations: 1 }
-    );
+    if (this.animation == true) {
+      const effect = new KeyframeEffect(
+        circleElement,
+        { strokeDasharray: ["0 200", progPercent + " 200"] },
+        { duration: 5000, iterations: 1 }
+      );
 
-    const animation = new Animation(effect, document.timeline);
-    animation.play();
+      const animation = new Animation(effect, document.timeline);
+      animation.play();
 
-    animation.onfinish = function() {
+      animation.onfinish = function() {
+        circleElement.style.strokeDasharray = progPercent + " 200";
+      };
+    }
+  },
+  methods: {
+    redraw(progress) {
+      const circleElement = this.$refs.solidCircle;
+      const progPercent = progress;
       circleElement.style.strokeDasharray = progPercent + " 200";
-    };
+    }
   }
 };
 </script>
@@ -81,5 +91,6 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size: 2em;
 }
 </style>

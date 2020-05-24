@@ -1,21 +1,5 @@
 <template>
   <main class="mx-10">
-    <v-card class="ma-10 pa-5">
-      <v-card-text
-        ><p class="text-center text--primary headline">
-          日報
-        </p></v-card-text
-      >
-      <v-divider></v-divider>
-      <ul v-if="notice.length > 0" class="pa-10 text-center">
-        <li v-for="line in notice" :key="line.id">
-          <v-card elevation="0">{{ line }}</v-card>
-        </li>
-      </ul>
-      <div v-if="notice.length === 0" class="pa-10 text-center">
-        日報はまだありません。
-      </div>
-    </v-card>
     <!-- =================== -->
     <v-card class="ma-10 pa-5">
       <v-card-text
@@ -24,7 +8,7 @@
         </p></v-card-text
       >
       <v-divider></v-divider>
-      <rankingBarchart :rank="rank" />
+      <rankingBarchart :rank="rank" v-if="rank.length != 0" />
       <div v-if="rank.length === 0" class="pa-10 text-center">
         まだ今日のデータがないため表示できませんでした。
       </div>
@@ -44,7 +28,7 @@
             </p>
           </v-card-text>
           <div>
-            <achieveCircle :progress="progress.am" />
+            <achieveCircle :progress="progress.am" :animation="true" />
           </div>
         </v-col>
         <v-col>
@@ -54,7 +38,7 @@
             </p>
           </v-card-text>
           <div>
-            <achieveCircle :progress="progress.pm" />
+            <achieveCircle :progress="progress.pm" :animation="true" />
           </div>
         </v-col>
         <v-col>
@@ -64,10 +48,26 @@
             </p>
           </v-card-text>
           <div>
-            <achieveCircle :progress="progress.whole" />
+            <achieveCircle :progress="progress.whole" :animation="true" />
           </div>
         </v-col>
       </v-row>
+    </v-card>
+    <!--  -->
+    <v-card class="ma-10 pa-5">
+      <v-card-text
+        ><p class="text-center text--primary headline">
+          成績
+        </p></v-card-text
+      >
+      <v-divider></v-divider>
+      <v-card-text><p class="text-center display-1">rate:200</p></v-card-text>
+      <v-sparkline
+        :line-width="2"
+        :labels="['10', '9', '8', '7', '6', '5', '4', '3', '2', '1', '0']"
+        :value="[0, 2, 5, 9, 5, 10, 3, 5, -4, -10, 1]"
+        :fill="true"
+      ></v-sparkline>
     </v-card>
   </main>
 </template>
@@ -94,8 +94,7 @@ export default {
 
     return {
       progress: progressResponse,
-      rank: rankResponse,
-      notice: []
+      rank: rankResponse
     };
   }
 };

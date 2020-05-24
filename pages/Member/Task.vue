@@ -1,6 +1,12 @@
 <template>
-  <div>
-    <v-list class="mx-10">
+  <v-card class="ma-10 pa-5">
+    <v-card-text>
+      <p class="text-center text--primary headline">
+        タスク一覧
+      </p>
+    </v-card-text>
+    <v-divider></v-divider>
+    <v-list class="mx-10" v-if="task.length != 0">
       <v-list-item class="flex-wrap">
         <taskItem
           v-for="item in task"
@@ -14,7 +20,10 @@
         />
       </v-list-item>
     </v-list>
-  </div>
+    <div class="pa-10 text-center" v-if="task.length === 0">
+      タスクがありません！管理人に問い合わせて、タスクをもらいましょう！
+    </div>
+  </v-card>
 </template>
 
 <script>
