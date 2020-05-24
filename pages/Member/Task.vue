@@ -14,7 +14,6 @@
           :taskStatus="{
             id: item.id,
             name: item.do,
-            describe: 'これはsampleの説明文です',
             isDone: item.status
           }"
           @click="isShow = true"
