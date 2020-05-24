@@ -89,9 +89,14 @@ export default {
       process.env.API_URL + "user/rank"
     );
 
-    const progressResponse = await app.$axios.$get(
-      process.env.API_URL + "task/progress"
-    );
+    // const progressResponse = await app.$axios.$get(
+    //   process.env.API_URL + "task/progress"
+    // );
+    const progressResponse = {
+      am: 0.5,
+      pm: 0.82,
+      whole: 0.66
+    };
 
     return {
       progress: progressResponse,

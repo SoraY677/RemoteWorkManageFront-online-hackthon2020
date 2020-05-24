@@ -5,7 +5,7 @@
       <circle ref="solidCircle" class="solid-circle" cx="32" cy="32" r="16" />
       <circle class="circle-title" cx="32" cy="32" r="24" />
     </svg>
-    <span class="achieve-percent">{{ progress }}%</span>
+    <span class="achieve-percent">{{ progress * 100 }}%</span>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
     if (this.animation == true) {
       const effect = new KeyframeEffect(
         circleElement,
-        { strokeDasharray: ["0 200", progPercent + " 200"] },
+        { strokeDasharray: ["0 200", progPercent * 100 + " 200"] },
         { duration: 5000, iterations: 1 }
       );
 
@@ -29,7 +29,7 @@ export default {
       animation.play();
 
       animation.onfinish = function() {
-        circleElement.style.strokeDasharray = progPercent + " 200";
+        circleElement.style.strokeDasharray = progPercent * 100 + " 200";
       };
     }
   },
