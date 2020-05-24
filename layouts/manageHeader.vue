@@ -14,7 +14,7 @@
             <img :src="getImgUrl()" />
           </v-avatar>
         </v-btn>
-        <v-btn to="/" text primary>log out</v-btn>
+        <v-btn @click="logout()" text primary>log out</v-btn>
       </v-toolbar-items>
     </v-toolbar>
   </v-card>
@@ -26,6 +26,10 @@ export default {
   methods: {
     getImgUrl() {
       return process.env.BASE_URL + "admin/icon?name=" + this.$store.state.name;
+    },
+    logout() {
+      this.$store.commit("logout");
+      location.href = "/";
     }
   }
 };

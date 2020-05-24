@@ -31,6 +31,9 @@
 
 <script>
 export default {
+  props: {
+    taskStatus: {}
+  },
   data() {
     return {
       isShow: false,
@@ -44,10 +47,13 @@ export default {
     show() {
       this.isShow = true;
     },
-    done() {
+    async done() {
+      await this.$axios.$post(process.env.API_URL + "task/update", {
+        id: parseInt(this.taskStatus.id),
+        status: "true"
+      });
       this.$emit("done");
       this.isShow = false;
-      console.log("hoge");
     }
   }
 };

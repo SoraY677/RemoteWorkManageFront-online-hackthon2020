@@ -12,6 +12,7 @@
           v-for="item in task"
           :key="item.id"
           :taskStatus="{
+            id: item.id,
             name: item.do,
             describe: 'これはsampleの説明文です',
             isDone: item.status

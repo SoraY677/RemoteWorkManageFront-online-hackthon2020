@@ -1,7 +1,7 @@
 <template>
   <draggable :options="{ group: 'taskList' }" element="ul">
-    <li class="ma-2" v-for="task in taskList" :key="task.id">
-      <task :taskStatus="task" />
+    <li class="ma-2" v-for="task in content" :key="task.id">
+      <task :taskStatus="task" v-if="task.do != null" />
     </li>
   </draggable>
 </template>
@@ -10,25 +10,8 @@
 import draggable from "vuedraggable";
 import task from "~/components/allocateTask";
 export default {
-  data() {
-    return {
-      taskList: [
-        {
-          name: "sample1",
-          describe: "sample1",
-          chargerList: ["山太郎", "重次郎"],
-          period: "",
-          flag: "急ぎ"
-        },
-        {
-          name: "sample2",
-          describe: "sample2",
-          chargerList: ["重次郎"],
-          period: "2020/11/12 19:00",
-          flag: ""
-        }
-      ]
-    };
+  props: {
+    content: null
   },
   components: {
     draggable,

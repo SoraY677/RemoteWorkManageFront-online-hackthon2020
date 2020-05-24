@@ -112,11 +112,9 @@ export default {
     },
     async postTaskAdd() {
       await this.$axios.$post(process.env.API_URL + "task/add", {
-        params: {
-          name: this.$store.state.name,
-          worker: this.form.worker,
-          do: this.form.name
-        }
+        name: this.$store.state.name,
+        worker: this.form.worker,
+        do: this.form.name
       });
     }
   }

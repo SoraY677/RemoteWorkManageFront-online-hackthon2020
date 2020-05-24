@@ -14,6 +14,9 @@ export const getters = {
   },
   getId(state){
     return state.id
+  },
+  isAdmin(state){
+    return state.adminFlag
   }
 }
 
@@ -22,8 +25,14 @@ export const mutations = {
     state.name = name
     state.id = id
     state.auth = auth
-    state.adming = admin
+    state.adminFlag = admin
   },
+  logout:function(state) {
+    state.name = "",
+    state.id= 0
+    state.auth = ""
+    state.adminFlag = false
+  }
 }
 
 export const actions = {
@@ -34,7 +43,7 @@ export const actions = {
     res.name = storeObj.name
     res.id = storeObj.id
     res.auth = storeObj.auth
-    res.admin = storeObj.admin
+    res.admin = storeObj.adminFlag
     commit('setAuth', res)
     }
   },

@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mt-4 pa-5" width="100%" :disabled="isDone">
+  <v-card class="mt-4 pa-5" width="100%" :disabled="taskStatus.status">
     <v-btn
       v-if="!isDone"
       @click="doneTask()"
@@ -16,11 +16,12 @@
       <v-card-title>
         {{ taskStatus.name }}
       </v-card-title>
-      <v-card-subtitle>
-        {{ taskStatus.describe }}
-      </v-card-subtitle>
     </div>
-    <achievementDialog ref="achievementDialog" @done="confirm" />
+    <achievementDialog
+      ref="achievementDialog"
+      @done="confirm"
+      :taskStatus="taskStatus"
+    />
   </v-card>
 </template>
 

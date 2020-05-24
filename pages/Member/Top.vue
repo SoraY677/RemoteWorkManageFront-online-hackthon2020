@@ -61,13 +61,8 @@
         </p></v-card-text
       >
       <v-divider></v-divider>
-      <v-card-text><p class="text-center display-1">rate:200</p></v-card-text>
-      <v-sparkline
-        :line-width="2"
-        :labels="['10', '9', '8', '7', '6', '5', '4', '3', '2', '1', '0']"
-        :value="[0, 2, 5, 9, 5, 10, 3, 5, -4, -10, 1]"
-        :fill="true"
-      ></v-sparkline>
+
+      <rateGraph class="mt-3" :rate="200" />
     </v-card>
   </main>
 </template>
@@ -75,12 +70,17 @@
 <script>
 import rankingBarchart from "~/components/rankingBarchart";
 import achieveCircle from "~/components/achieveCircle";
+import rateGraph from "~/components/rateGraph";
 export default {
   layout: "memberLayout",
+  date() {
+    return {};
+  },
 
   components: {
     rankingBarchart,
-    achieveCircle
+    achieveCircle,
+    rateGraph
   },
 
   async asyncData({ app }) {
