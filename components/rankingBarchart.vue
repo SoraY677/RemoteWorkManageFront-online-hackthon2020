@@ -6,10 +6,10 @@
         <span>{{ user.name }}</span>
       </div>
       <div ref="barOuter" class="bar-outer">
-        <p class="progress">{{ user.progress }} %</p>
+        <p class="progress">{{ user.progress * 100 }} %</p>
         <div
           class="solid-bar"
-          :style="{ width: formatBarLength(user.progress) }"
+          :style="{ width: formatBarLength(user.progress * 100) }"
         ></div>
       </div>
     </div>

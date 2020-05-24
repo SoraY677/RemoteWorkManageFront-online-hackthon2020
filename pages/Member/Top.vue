@@ -9,6 +9,7 @@
       >
       <v-divider></v-divider>
       <rankingBarchart :rank="rank" v-if="rank.length != 0" />
+
       <div v-if="rank.length === 0" class="pa-10 text-center">
         まだ今日のデータがないため表示できませんでした。
       </div>
